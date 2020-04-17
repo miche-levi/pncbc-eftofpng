@@ -32,11 +32,11 @@
 (*along with EFTofPNG.  If not, see <http://www.gnu.org/licenses/>.*)
 
 
-(* ::Subchapter:: *)
+(* ::Subchapter::Closed:: *)
 (*Setup*)
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*define vertices manifold and metric*)
 
 
@@ -150,7 +150,7 @@ TimeIt[ex_] := Module[
 SetAttributes[TimeIt, HoldFirst];
 
 
-(* ::Subchapter:: *)
+(* ::Subchapter::Closed:: *)
 (*Generate Graph Topologies*)
 
 
@@ -313,7 +313,7 @@ MakeGraphs[expr_] := MakeGraphTerm /@ PlusToList[
 ];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Example: Topologies to G^3*)
 
 
@@ -347,11 +347,11 @@ contractf = Collect[contract//DropRenormalization//DropUnconnected, G];
 MakeGraphs[G^# * Coefficient[contractf, G, #]]& /@ Range[3]
 
 
-(* ::Subchapter:: *)
+(* ::Subchapter::Closed:: *)
 (*Generate PN Diagrams*)
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*insert propagators and fields *)
 
 
@@ -406,7 +406,7 @@ InsertFields[expr_] := NoScalar[expr // ShowPropagators] /. {
 } // ToCanonicalDiagrams // ConvertVertices;
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*project to spin orders*)
 
 
@@ -434,7 +434,7 @@ ProjectSpin[expr_] := expr /. {
 };
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*import Feynman rules and PN count*)
 
 
@@ -506,7 +506,7 @@ ShowPNOrder[expr_] := HidePNOrder[expr] /. {
 };
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*add propagator insertions*)
 
 
@@ -530,7 +530,7 @@ PropagatorInsertions[n_?Positive][expr_] := Module[
 ];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*generate PN graphs*)
 
 
@@ -550,7 +550,7 @@ MakePNGraphTerm[expr_] := Module[
         VertexSize -> 0.2, VertexShapeFunction -> "Capsule"
     };
 	vstyle[Ssquare] = {
-        VertexSize -> 0.2, VertexShapeFunction -> "Square",VertexStyle->Black
+        VertexSize -> 0.2, VertexShapeFunction -> "Square"
     };
     (* adding ``past'' tip points to the worldlines *)
 	ex = expr * wl1[Unique[]] * wl2[Unique[]]  /. { 
@@ -616,7 +616,7 @@ MakePNGraphs[expr_] := MakePNGraphTerm /@ PlusToList[
 ];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Example: PN diagrams to G^3 and 4PN*)
 
 
@@ -675,7 +675,7 @@ Coefficient[PNdiagramsS, SO, 1];
 MakePNGraphs[G^# * Coefficient[%, G, #]]& /@ Range[3]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*spin-squared diagrams*)
 
 
